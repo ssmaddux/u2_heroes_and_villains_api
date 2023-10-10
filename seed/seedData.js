@@ -1,5 +1,5 @@
 const db = require('../db')
-const { Affiliation, Villain, Hero } = require('../models')
+const { Affiliation, Villain, Hero } = require('../models/index')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -9,17 +9,21 @@ const main = async () => {
         good: true
     })
     affiliation1.save()
+    if(affiliation1.save) {console.log('Done1')}
 
     const affiliation2 = await new Affiliation ({
         team: "Marvel",
         good: true
     })
     affiliation2.save()
+    if(affiliation2.save) {console.log('Done2')}
 
     const affiliation3 = await new Affiliation ({
         team: "Serpent Society",
         good: false
     })
+    affiliation3.save()
+    if(affiliation3.save) {console.log('Done3')}
 
 
 
@@ -35,6 +39,7 @@ const main = async () => {
 
     })
     villain1.save()
+    if(villain1.save) {console.log('Done4')}
 
     const hero1 = await new Hero ({
         known_as: "Captain America",
@@ -49,6 +54,7 @@ const main = async () => {
 
     })
     hero1.save()
+    if(hero1.save) {console.log('Done5')}
 
 }
 
